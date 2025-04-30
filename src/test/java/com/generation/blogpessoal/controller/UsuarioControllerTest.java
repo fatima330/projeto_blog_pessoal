@@ -39,7 +39,7 @@ public class UsuarioControllerTest {
 		
 		usuarioRepository.deleteAll();
 		
-		usuarioService.cadastrarUsuario(new Usuario(null, "root","root@root.com", "rootroot","-"));
+		usuarioService.cadastrarUsuario(new Usuario(null, "Root","root@root.com", "rootroot","-"));
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class UsuarioControllerTest {
 	public void deveCriarUmUsuario() {
 		
 		HttpEntity<Usuario> corpoRequisicao = new HttpEntity<Usuario>(new Usuario(null, 
-				"maria", "maria@gmail.com","12345678","-"));
+				"Maria", "maria@email.com","12345678","-"));
 		
 		ResponseEntity<Usuario> corpoResposta = testRestTemplate
 				.exchange("/usuarios/cadastrar", HttpMethod.POST,corpoRequisicao, Usuario.class);
@@ -60,9 +60,9 @@ public class UsuarioControllerTest {
 	@DisplayName("Não deve permitir duplicação do Usuario")
 	public void naoDeveDuplicarUsuario() {
 		
-		usuarioService.cadastrarUsuario(new Usuario(null,"Maria Oliveira", "maria_oliveira@gmail.com", "12345678", "-"));
+		usuarioService.cadastrarUsuario(new Usuario(null,"Maria oliveira", "maria_oliveira@email.com", "12345678", "-"));
 		
-		HttpEntity<Usuario> corpoRequisisao = new HttpEntity<Usuario>(new Usuario(null,"Maria oliveira","maria_oliveira@gmail.com", "12345678", "-"));
+		HttpEntity<Usuario> corpoRequisisao = new HttpEntity<Usuario>(new Usuario(null,"Maria oliveira","maria_oliveira@email.com", "12345678", "-"));
 		
 		ResponseEntity<Usuario> corpoResposta = testRestTemplate
 				.exchange("/usuarios/cadastrar", HttpMethod.POST, corpoRequisisao, Usuario.class);
