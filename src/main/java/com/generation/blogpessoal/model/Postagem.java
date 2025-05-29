@@ -61,10 +61,10 @@ public class Postagem {
 	public void setTexto(String texto) {
 		this.texto = texto;
 	}
-	public LocalDate getData() {
+	public ZonedDateTime getData() {
 		return data;
 	}
-	public void setData(LocalDate data) {
+	public void setData(ZonedDateTime data) {
 		this.data = data;
 	}
 	public Tema getTema() {
