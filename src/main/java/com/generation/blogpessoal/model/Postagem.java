@@ -1,6 +1,7 @@
 package com.generation.blogpessoal.model;
 
 import java.time.LocalDate;
+import java.time.ZonedDateTime;
 
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -32,7 +33,7 @@ public class Postagem {
 	private String texto;
 	
 	@UpdateTimestamp
-	private LocalDate data;
+	private ZonedDateTime data;
 	
 	@ManyToOne //MUITOS PARA UM
 	@JsonIgnoreProperties ("postagem")
